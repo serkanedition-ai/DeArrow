@@ -257,6 +257,7 @@ async function registerNeededContentScripts(activated?: boolean, forceUpdate?: b
                     runAt: script.runAt,
                     matches: script.matches,
                     allFrames: script.allFrames,
+                    excludeMatches: script.excludeMatches,
                     js: script.js,
                     css: script.css,
                     persistAcrossSessions: true,
@@ -290,6 +291,7 @@ async function registerNeededContentScripts(activated?: boolean, forceUpdate?: b
                     script: await browser.contentScripts.register({
                         runAt: script.runAt,
                         matches: script.matches,
+                        excludeMatches: script.excludeMatches,
                         allFrames: script.allFrames,
                         js: script.js?.map?.(js => ({file: js})),
                         css: script.css?.map?.(css => ({file: css})),

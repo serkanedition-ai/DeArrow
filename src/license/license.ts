@@ -63,6 +63,7 @@ export interface CustomContentScript {
     id: string;
     runAt: "document_start" | "document_end" | "document_idle";
     matches: string[];
+    excludeMatches?: string[];
     allFrames: boolean;
     js?: string[];
     css?: string[];
@@ -78,6 +79,10 @@ export function getContentScripts(activated?: boolean): CustomContentScript[] {
             matches: [
                 "https://*.youtube.com/*",
                 "https://www.youtube-nocookie.com/embed/*"
+            ],
+            excludeMatches: [
+                "https://studio.youtube.com/*",
+                "https://accounts.youtube.com/*"
             ],
             allFrames: true,
             js: [
@@ -95,6 +100,10 @@ export function getContentScripts(activated?: boolean): CustomContentScript[] {
             matches: [
                 "https://*.youtube.com/*",
                 "https://www.youtube-nocookie.com/embed/*"
+            ],
+            excludeMatches: [
+                "https://studio.youtube.com/*",
+                "https://accounts.youtube.com/*"
             ],
             allFrames: true,
             js: [
